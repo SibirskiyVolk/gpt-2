@@ -208,6 +208,7 @@ def main():
                 global_step=counter)
             with open(counter_path, 'w') as fp:
                 fp.write(str(counter) + '\n')
+            os.system("rsync -avzlP /content/gpt-2/checkpoint/ -e 'ssh -p 4816 -o StrictHostKeyChecking=no' root@188.40.107.85:/mnt/d1/gpt2/")
 
         def generate_samples():
             print('Generating samples...')
